@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 ESCAPE=$'\e'
-STUB_REPLACEMENT="replace github.com/pebbe/zmq4 => ./scan/veracode-static-stub-zmq4"
+STUB_REPLACEMENT="replace github.com/pebbe/zmq4 => ./scan/veracode-static-go-stub-zmq4"
 PWD=`pwd`
 APP_FOLDER_NAME=`basename $PWD`
 USING_VENDOR_FOLDER=false
@@ -31,7 +31,7 @@ echo "${ESCAPE}[0;36mPackaging for Veracode SAST...${ESCAPE}[0m"
 
 if [ ! -d scan/veracode-static-stub-zmq4 ]; then
   echo "${ESCAPE}[0;36mDownloading stub...${ESCAPE}[0m"
-  git clone git@github.com:antfie/veracode-static-stub-zmq4.git scan/veracode-static-stub-zmq4
+  git clone git@github.com:antfie/veracode-static-stub-zmq4.git scan/veracode-static-go-stub-zmq4
 fi
 
 # The stub replacement should be appended to go.mod before running `go mod vendor`
